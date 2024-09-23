@@ -1,10 +1,11 @@
-import React from 'react'
+import CreateJobForm from "@/components/create-job/CreateJobForm"
+
 
 function page() {
   return (
-    <div>
-      <h4 className="text-4xl">Add Job page</h4>
-    </div>
+    <>
+      <CreateJobForm />
+    </>
   )
 }
 

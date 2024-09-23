@@ -1104,13 +1104,13 @@ export default CreateJobForm;
 model Job {
   id        String      @id @default(uuid())
   clerkId   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
   position    String
   company   String
   location  String
   status      String
   mode     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 ```
 

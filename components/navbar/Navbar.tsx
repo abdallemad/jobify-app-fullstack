@@ -5,7 +5,7 @@ import UserIcon from "./UserIcon";
 import { UserButton } from "@clerk/nextjs";
 function Navbar() {
   return (
-    <nav className="flex justify-between items-center py-4  px-12 border bg-muted sm:px-16 lg:px-24">
+    <nav className="flex justify-between items-center py-4  px-12 bg-muted sm:px-16 lg:px-24">
       <div className="lg:hidden">
         <LinksDropDown />
       </div>

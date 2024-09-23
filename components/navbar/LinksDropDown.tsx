@@ -12,12 +12,13 @@ import Link from "next/link"
 function LinksDropDown() {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button size={'icon'} variant={'secondary'}>
+      <DropdownMenuTrigger asChild className="lg:hidden">
+        <Button size={'icon'} variant={'outline'}>
           <AlignLeft />
+          <span className="sr-only">toggle links</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent sideOffset={10} align="center" className="w-48 ">
+      <DropdownMenuContent sideOffset={10} align="center" className="w-48 lg:hidden">
         {
           links.map(link=>{
             const {label,href,icon} = link;
