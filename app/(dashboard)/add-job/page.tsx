@@ -10,9 +10,9 @@ function page() {
   const queryClient = new QueryClient();
   return (
     <>
-    <HydrationBoundary state={dehydrate(queryClient)}>
-      <CreateJobForm />
-    </HydrationBoundary>
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <CreateJobForm />
+      </HydrationBoundary>
     </>
   )
 }
