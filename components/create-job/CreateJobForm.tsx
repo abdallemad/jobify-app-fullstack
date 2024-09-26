@@ -7,14 +7,13 @@ import { CustomField, CustomSelect } from './FormComponents';
 import { Form } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
 import { formSchema , CreateJobType, JobMode ,JobStatus } from '@/utils/types';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { QueryClient, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useToast } from '@/hooks/use-toast';
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 
-function CreateJobForm() {
+function CreateJobForm({queryClient}:{queryClient:QueryClient}) {
   const {toast} = useToast();
-  const queryClient = useQueryClient();
   const {isSignedIn,user} = useUser()
   const router = useRouter()
 
@@ -33,7 +32,7 @@ function CreateJobForm() {
         return null
       }
   },
-  onSuccess:(data)=>{
+  onSuccess:async (data)=>{
     // display the toast
     if(!data){
       toast({
@@ -45,9 +44,9 @@ function CreateJobForm() {
       description:"Job Add Successfully."
     })
     // revalidate the queries that doesn't exists yet.
-    queryClient.invalidateQueries({ queryKey: ['jobs'] });
-    queryClient.invalidateQueries({ queryKey: ['stats'] });
-    queryClient.invalidateQueries({ queryKey: ['charts'] });
+    await queryClient.invalidateQueries({ queryKey: ['jobs'], exact:false });
+    await queryClient.invalidateQueries({ queryKey: ['stats'], exact:false });
+    await queryClient.invalidateQueries({ queryKey: ['charts'], exact:false });
     // reset the form and redirect 
     form.reset();
     router.push('/jobs');
@@ -71,7 +70,9 @@ function CreateJobForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-center bg-muted rounded p-8'>
+      <form onSubmit={form.handleSubmit(onSubmit)} className=' bg-muted rounded p-8'>
+      <h2 className="text-4xl mb-8 font-semibold">Add Job</h2>
+      <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-center'>
         <CustomField name='position' control={form.control} />
         <CustomField name='company' control={form.control} />
         <CustomField name='location' control={form.control} />
@@ -82,6 +83,7 @@ function CreateJobForm() {
             isPending?'loading..':'create job'
           }
       </Button>
+      </div>
       </form>
     </Form>
   );

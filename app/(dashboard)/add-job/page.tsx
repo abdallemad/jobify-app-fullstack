@@ -11,7 +11,7 @@ function page() {
   return (
     <>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <CreateJobForm />
+        <CreateJobForm queryClient={queryClient} />
       </HydrationBoundary>
     </>
   )

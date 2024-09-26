@@ -8,13 +8,7 @@ import { useState } from "react";
 
 function Providers({children}:Readonly<{children:React.ReactNode}>) {
   const [queryClient] = useState(()=>{
-    return new QueryClient({
-      defaultOptions:{
-        queries:{
-          staleTime:60 * 1000 * 5
-        }
-      }
-    })
+    return new QueryClient()
   })
 
   return (

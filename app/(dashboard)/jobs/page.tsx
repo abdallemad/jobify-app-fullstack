@@ -6,18 +6,16 @@ import {
   QueryClient,
 } from '@tanstack/react-query';
 import { getAllJobsActions } from '@/utils/actions';
-
 async function jobs() {
   const queryClient = new QueryClient();
-
-
+  
   await queryClient.prefetchQuery({
-    queryKey:['jobs','','all'],
+    queryKey:['jobs','','all',1],
     queryFn: ()=> getAllJobsActions({})
   })
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <SearchForm />
+      <SearchForm /> 
       <JobsList />
     </HydrationBoundary>
   )
