@@ -5,7 +5,7 @@ import Sidebar from '@/components/sidebar/Sidebar'
 function layout({children}:Readonly<{children:React.ReactNode}>) {
   return (
     <div className='grid lg:grid-cols-5'>
-      <div className="hidden lg:block lg:min-h-screen">
+      <div className="hidden lg:block lg:min-h-screen ">
         <Sidebar />
       </div>
       <div className='lg:col-span-4'>

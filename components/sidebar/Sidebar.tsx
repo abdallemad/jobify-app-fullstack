@@ -9,7 +9,7 @@ function Sidebar() {
   return (
     <aside className="py-4 px-8 bg-muted h-full">
       <Logo />
-      <div className="flex flex-col mt-20 gap-y-4">
+      <div className="flex flex-col mt-20 gap-y-4 sticky top-10">
         {
           links.map(link=>{
 
