@@ -3,6 +3,6 @@
   "rules": {
     "@typescript-eslint/no-unused-vars":"off",
     "@typescript-eslint/no-explicit-any":"off",
-    "@typescript-eslint/prefer-as-const":false
+    "@typescript-eslint/prefer-as-const":0
   }
 }
