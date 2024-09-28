@@ -1,7 +1,6 @@
 'use client';
 import ModeToggle from "./ModeToggle"
 import LinksDropDown from "./LinksDropDown";
-import UserIcon from "./UserIcon";
 import { UserButton } from "@clerk/nextjs";
 function Navbar() {
   return (

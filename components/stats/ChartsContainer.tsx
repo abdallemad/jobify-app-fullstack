@@ -23,7 +23,7 @@ export default function ChartContainer() {
   })
   if(isPending) return null
   if(!chartData) return <h1>no data</h1>
-  if(chartData.length == 0) return <h2>you don't hae any jobs yet tod display the chart</h2>
+  if(chartData.length == 0) return <h2>you dont hae any jobs yet tod display the chart</h2>
   return (
     <Card className="w-full bg-muted self-start">
       <CardHeader className="text-center lg:text-start">
