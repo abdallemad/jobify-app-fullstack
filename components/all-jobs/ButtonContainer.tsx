@@ -27,7 +27,7 @@ function ButtonContainer({ currentPage, totalPages }: ButtonContainerProps) {
       page: String(page),
     };
 
-    let params = new URLSearchParams(defaultParams);
+    const params = new URLSearchParams(defaultParams);
 
     router.push(`${pathname}?${params.toString()}`);
   };
@@ -46,7 +46,7 @@ function ButtonContainer({ currentPage, totalPages }: ButtonContainerProps) {
   };
 
   const renderPageButtons = () => {
-    let pageButtons:any[] = [];
+    const pageButtons:any[] = [];
     // first page
     pageButtons.push(
       addPageButton({ page: 1, activeClass: currentPage === 1 })
