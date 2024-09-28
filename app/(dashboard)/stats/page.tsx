@@ -21,7 +21,7 @@ async function StatsPage() {
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <StatsContainer />
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-2 mb-24">
         <ChartsContainer />
         <StatsChart />
       </div>

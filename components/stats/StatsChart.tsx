@@ -73,8 +73,8 @@ export default function StatsChart() {
   return (
     <Card className="flex flex-col bg-muted self-start">
       <CardHeader className="items-center pb-0">
-        <CardTitle>Application Status</CardTitle>
-        <CardDescription>Current status of applications</CardDescription>
+        <CardTitle>Jobs Status</CardTitle>
+        <CardDescription>Current jobs status</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
@@ -131,7 +131,7 @@ export default function StatsChart() {
           Interview rate: {((40 / totalCount) * 100).toFixed(1)}% <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing current status of all applications
+          Showing current jobs status
         </div>
       </CardFooter>
     </Card>
