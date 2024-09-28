@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-query"
 import axios from "axios";
 import { JobType } from "@/utils/types";
+import LoadingContainer from "../globals/LoadingContainer";
+import ButtonContainer from "./ButtonContainer";
 type DataType = {jobs:JobType[],page:number,count:number,totalPages:number} | null;
 
 
@@ -30,15 +32,28 @@ function JobsList() {
     }})
 
   const jobs = data?.jobs || [];
-  if(isPending) return <h2 className="text-xl">please wait...</h2>
+  const count = data?.count || 0;
+  const totalPages = data?.totalPages || 0;
+  const page = data?.page || 1;
+  if(isPending) return <div className='grid md:grid-cols-2 gap-8'>
+  <LoadingContainer />
+  <LoadingContainer />
+</div>
+
   if(jobs.length == 0 ) return <h2 className="text-xl">no jobs found..</h2>
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-    <div className="grid md:grid-cols-2 gap-8">
-      {jobs.map(job=>{
-        return <JobCard key={job.id} job={job} />
-      })}
-    </div>
+      <div className="flex items-center justify-between mb-8">
+        <h2 className="text-xl font-semibold capitalize">{count} jobs found</h2>
+        {
+          totalPages < 2 ? null: <ButtonContainer currentPage={page} totalPages={totalPages} />
+        }
+      </div>
+      <div className="grid md:grid-cols-2 gap-8">
+        {jobs.map(job=>{
+          return <JobCard key={job.id} job={job} />
+        })}
+      </div>
     </HydrationBoundary>
   )
 }

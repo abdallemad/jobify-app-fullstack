@@ -1,5 +1,6 @@
 import StatsContainer from '@/components/stats/StatusContainer';
 import ChartsContainer from '@/components/stats/ChartsContainer';
+import StatsChart from '@/components/stats/StatsChart';
 import { getChartsDataAction, getStatsAction } from '@/utils/actions';
 import {
   dehydrate,
@@ -20,7 +21,10 @@ async function StatsPage() {
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
       <StatsContainer />
-      <ChartsContainer />
+      <div className="grid gap-4 lg:grid-cols-2">
+        <ChartsContainer />
+        <StatsChart />
+      </div>
     </HydrationBoundary>
   );
 }

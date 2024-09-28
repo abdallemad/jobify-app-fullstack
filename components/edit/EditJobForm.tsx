@@ -19,7 +19,7 @@ import { useMutation, useQueryClient, useQuery, useMutationState } from '@tansta
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-
+import LoadingContainer from '../globals/LoadingContainer';
 function EditJobForm({ jobId }: { jobId: string }) {
   const queryClient = useQueryClient()
   const router = useRouter();
@@ -65,7 +65,10 @@ function EditJobForm({ jobId }: { jobId: string }) {
   const handleSubmit = (values:CreateJobType)=>{
     mutate(values)
   }
-  if(isPendingQuery) return <h2 className="text-3xl">Wait...</h2>
+  if(isPendingQuery) return <div className='grid md:grid-cols-2 gap-8'>
+    <LoadingContainer />
+    <LoadingContainer />
+  </div>
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className='bg-muted rounded p-8'>

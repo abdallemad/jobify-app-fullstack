@@ -64,7 +64,11 @@ export async function getAllJobsActions({jobStatus,limit =10,page =1,search}:Get
       skip:(page-1)*limit,
       take:limit,
     })
-    return {jobs, count:0, page:1,totalPages:0 }
+    // this more fast than make the server calculate it.
+    const count:number = await db.job.count({
+      where:whereClause
+    })
+    return {jobs, count, page: page,totalPages: Math.ceil(count/limit) }
   } catch (error) {
     return {jobs:[], count:0, page:1,totalPages:0 }
   }

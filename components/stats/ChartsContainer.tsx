@@ -25,8 +25,8 @@ export default function ChartContainer() {
   if(!chartData) return <h1>no data</h1>
   if(chartData.length == 0) return <h2>you don't hae any jobs yet tod display the chart</h2>
   return (
-    <Card className="w-full bg-muted">
-      <CardHeader>
+    <Card className="w-full bg-muted self-start">
+      <CardHeader className="text-center lg:text-start">
         <CardTitle className="text-xl sm:text-2xl">Job Applications by Month</CardTitle>
         <CardDescription>Number of job applications submitted each month</CardDescription>
       </CardHeader>
@@ -53,12 +53,12 @@ export default function ChartContainer() {
           </ResponsiveContainer>
         </div>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-sm">
+      <CardFooter className="flex-col items-start gap-2 text-sm ">
         <div className="font-medium leading-none">
           Total applications: {chartData.reduce((sum, item) => sum + item.count, 0)}
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing job application counts from Apr 2023 to Dec 2023
+          Showing job application counts from Apr 2023 to Sep 2024
         </div>
       </CardFooter>
     </Card>
