@@ -4,6 +4,9 @@
     "@typescript-eslint/no-unused-vars":"off",
     "@typescript-eslint/no-explicit-any":"off",
     "@typescript-eslint/prefer-as-const":0,
-    "@typescript-eslint/no-empty-object-type": "off"
+    "@typescript-eslint/no-empty-object-type": "off",
+    "prefer-const": "off", // To disable the prefer-const rule if you don't want to enforce it
+    "@next/next/no-img-element": "off", // To disable the warning about using <img>
+    "react/no-unescaped-entities": "off" // To disable the unescaped entities warning
   }
 }
