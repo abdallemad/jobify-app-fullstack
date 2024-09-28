@@ -26,7 +26,7 @@ function SearchForm() {
     const status = formData.get('jobStatus') as string
     const params = new URLSearchParams();
     params.set('search',search);
-    params.set('jobStatus',status);
+    params.set('jobStatus',status); 
 
     // each time you submit this form the queries will change
     router.push(`${pathname}?${params.toString()}`)
